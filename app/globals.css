@@ -1,0 +1,459 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 30 15% 92%;
+  --foreground: 222.2 25% 18%;
+  --card: 30 10% 95%;
+  --card-foreground: 222.2 25% 18%;
+  --border: 214.3 15% 75%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 30 10% 90%;
+  --secondary-foreground: 222.2 25% 18%;
+  --muted: 30 8% 88%;
+  --muted-foreground: 215.4 16.3% 50%;
+  --accent: 30 10% 90%;
+  --accent-foreground: 222.2 25% 18%;
+}
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 213 31% 91%;
+  --card: 224 71% 4%;
+  --card-foreground: 213 31% 91%;
+  --border: 216 34% 17%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 11%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 213 31% 91%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 217 33% 17%;
+  --accent-foreground: 213 31% 91%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  transition: none;
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: linear-gradient(to bottom, hsl(30 12% 94%), hsl(30 15% 91%));
+  background-attachment: fixed;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Améliorations pour les cartes en light mode */
+.bg-card {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02), 0 1px 1px -1px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bg-card:hover {
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.03), 0 1px 3px -2px rgba(0, 0, 0, 0.03);
+  transform: translateY(-1px);
+}
+
+/* Amélioration des bordures en light mode */
+.border-border {
+  border-color: hsl(var(--border));
+  transition: none;
+}
+
+/* Amélioration des boutons en light mode */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Amélioration des inputs en light mode */
+input,
+select,
+textarea {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsla(var(--primary) / 0.1);
+  outline: none;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: hsl(214.3 15% 70%);
+}
+
+/* Amélioration des couleurs de catégories en light mode */
+.bg-secondary {
+  background: hsl(var(--secondary));
+  transition: none;
+}
+
+.bg-secondary\/50 {
+  background: hsla(30 10% 90% / 0.5);
+  transition: none;
+}
+
+.hover\:bg-secondary:hover {
+  background: hsl(30 10% 87%);
+}
+
+/* Amélioration des ombres pour les éléments interactifs */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+}
+
+/* Transitions pour les interactions utilisateur uniquement */
+button,
+a {
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+input,
+select,
+textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.dark body {
+  background: linear-gradient(to bottom, hsl(222 47% 11%), hsl(224 71% 4%));
+  background-attachment: fixed;
+  transition: none;
+}
+
+/* Améliorations pour les cartes en dark mode */
+.dark .bg-card {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .bg-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Amélioration des bordures */
+.dark .border-border {
+  border-color: hsl(216 34% 17%);
+}
+
+/* Amélioration des boutons en dark mode */
+.dark button:hover {
+  transition: all 0.2s ease;
+}
+
+/* Amélioration des inputs en dark mode */
+.dark input,
+.dark select,
+.dark textarea {
+  background: hsl(224 71% 4%);
+  border-color: hsl(216 34% 17%);
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsla(var(--primary) / 0.1);
+}
+
+/* Amélioration des couleurs de catégories en dark mode */
+.dark .bg-secondary {
+  background: hsl(217 33% 17%);
+  transition: none;
+}
+
+.dark .bg-secondary\/50 {
+  background: hsla(217 33% 17% / 0.5);
+  transition: none;
+}
+
+.dark .hover\:bg-secondary:hover {
+  background: hsl(217 33% 20%);
+}
+
+/* Masquer les flèches des inputs number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Animations pour les formulaires */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+    max-height: 200px;
+    margin-bottom: 12px;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+    max-height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-out-down {
+  animation: fadeOutDown 0.3s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-out {
+  animation: scaleOut 0.3s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.animate-slide-out-left {
+  animation: slideOutLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  overflow: hidden;
+}
+
+/* Styles de scrollbar modernes pour le thème clair */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+  border-radius: 10px;
+  margin: 8px 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(215.4 16.3% 45%);
+  border-radius: 10px;
+  border: 4px solid hsl(var(--background));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 40px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(215.4 16.3% 35%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: hsl(215.4 16.3% 30%);
+}
+
+::-webkit-scrollbar-corner {
+  background: hsl(var(--background));
+}
+
+/* Styles de scrollbar modernes pour le thème sombre */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+  border-radius: 10px;
+  margin: 8px 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(216 34% 22%);
+  border-radius: 10px;
+  border: 4px solid hsl(var(--background));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  min-height: 40px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, hsl(216 34% 30%) 0%, hsl(216 34% 25%) 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+}
+
+.dark ::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, hsl(216 34% 35%) 0%, hsl(216 34% 30%) 100%);
+}
+
+.dark ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Styles de scrollbar pour Firefox - thème clair */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(215.4 16.3% 45%) transparent;
+}
+
+/* Styles de scrollbar pour Firefox - thème sombre */
+.dark * {
+  scrollbar-color: hsl(216 34% 22%) transparent;
+}
+
+/* Animation pour le soulignement du prénom */
+@keyframes underlineDraw {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.username-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.username-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, hsl(var(--primary)) 20%, hsl(var(--primary)) 80%, transparent 100%);
+  border-radius: 2px;
+  animation: underlineDraw 0.6s ease-out;
+  transform: scaleX(1);
+}
+
+.username-underline::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.3) 50%, transparent 100%);
+  border-radius: 1px;
+  animation: underlineDraw 0.8s ease-out 0.1s;
+  transform: scaleX(1);
+}
+
+/* Animation pour la flèche de transfert */
+@keyframes arrowFlip {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  51% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Amélioration de la visibilité des emojis et icônes en light mode */
+.emoji-dark {
+  filter: brightness(0.75) contrast(1.3);
+  display: inline-block;
+}
+
+/* Assombrir les emojis dans le thème clair */
+body:not(.dark) span[class*="text-2xl"]:not(.dark span),
+body:not(.dark) span[class*="text-3xl"]:not(.dark span),
+body:not(.dark) span[class*="text-4xl"]:not(.dark span) {
+  filter: brightness(0.75) contrast(1.3);
+  display: inline-block;
+}
+
+/* Améliorer les icônes Lucide dans le thème clair */
+body:not(.dark) svg:not(.dark svg) {
+  opacity: 0.85;
+}
+
+/* Assombrir les icônes dans les cartes StatsCard */
+body:not(.dark) [class*="bg-primary/10"] svg,
+body:not(.dark) [class*="bg-red-500/10"] svg,
+body:not(.dark) [class*="bg-green-500/10"] svg {
+  opacity: 0.8;
+}

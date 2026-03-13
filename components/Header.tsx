@@ -76,8 +76,7 @@ export default function Header({ onProfileOpen, onActionLogOpen }: HeaderProps) 
             </div>
             <div>
               <h1 className="text-2xl font-bold text-foreground">
-                Wallet-Log's
-              </h1>
+              Wallet-Log&apos;s              </h1>
               <p className="text-sm text-muted-foreground">{t('header.subtitle')}</p>
             </div>
           </div>

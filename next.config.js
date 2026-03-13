@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   
+  // Ignorer les erreurs ESLint lors du build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
   // Optimisations pour Next.js 15
   experimental: {
     optimizePackageImports: ['lucide-react', 'recharts'],

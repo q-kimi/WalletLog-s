@@ -1,0 +1,56 @@
+# Dossiers de dev - exclus du build Docker (reduit taille image + temps build)
+node_modules
+.next
+.git
+.gitignore
+
+# Fichiers de dev et documentation
+README.md
+*.md
+.env*.local
+.env.development
+
+# Configs de linting/formatting
+.eslintrc*
+.eslintignore
+.prettierrc*
+.editorconfig
+
+# Configs de test
+__tests__
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+jest.config.*
+vitest.config.*
+
+# Configs TypeScript de dev
+tsconfig.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Coverage
+coverage
+.nyc_output
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Storybook
+.storybook
+storybook-static
